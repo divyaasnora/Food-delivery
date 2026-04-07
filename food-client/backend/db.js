@@ -11,7 +11,7 @@ const mongoDB = async () => {
 
         const data = await db.collection("food_items").find({}).toArray();
 
-        console.log("Fetched Data:", data);
+        console.log("Fetched Data:");
 
     } catch (error) {
         console.error("MongoDB connection error ❌", error);
