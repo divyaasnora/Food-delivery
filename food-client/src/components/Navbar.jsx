@@ -32,13 +32,6 @@ export default function Navbar() {
                 <Link className="nav-link" to="/login">Login</Link>
               </li>
               </ul>
-              
-                
-
-              
-
-            
-
             <form className="d-flex">
               <input
                 className="form-control me-2"
