@@ -1,39 +1,49 @@
-import pizza from "../assets/pizza.jpg";
-export default function Card(){
-    return(
-        <div className="container mt-5">
-        <div
-          className="card"
-          style={{ width: "18rem", fontFamily: "-apple-system" }}
-        >
-          <img src={pizza} className="card-img-top" alt="pizza" />
+export default function Card({ item }) {
+  return (
+    <div className="container mt-5">
+      <div
+        className="card"
+        style={{ width: "18rem", fontFamily: "-apple-system" }}
+      >
+        {/* ✅ Dynamic Image */}
+        <img src={item.img} className="card-img-top" alt={item.name} />
 
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
+        <div className="card-body">
+          {/* ✅ Dynamic Title */}
+          <h5 className="card-title">{item.name}</h5>
 
-            <p className="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
+          {/* ✅ Dynamic Description */}
+          <p className="card-text">
+            {item.description || "Delicious food"}
+          </p>
 
-            <div className="container w-100">
-              <select className="m-2 h-100  bg-success rounded">
-                {Array.from(Array(6),(e,i)=>{
-                  return(
-                    <option key={i+1} value={i+1}>{i+1}</option>
-                  )
-                })}
-              </select>
-              <select className="m-2 h-100  bg-success rounded">
-                <option value="half">Half</option>
-                   <option value="full">Full</option>
-              </select>
-              <span>Total Price</span>
-            </div>
+          <div className="container w-100">
+            
+            {/* Quantity */}
+            <select className="m-2 h-100 bg-success text-white rounded">
+              {Array.from(Array(6), (e, i) => {
+                return (
+                  <option key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </option>
+                );
+              })}
+            </select>
+
+            {/* Size */}
+            <select className="m-2 h-100 bg-success text-white rounded">
+              <option value="half">Half</option>
+              <option value="full">Full</option>
+            </select>
+
+            {/* Price */}
+            <span className="ms-2">
+              ₹{item.options?.[0]?.half}
+            </span>
+
           </div>
         </div>
       </div>
-    )
+    </div>
+  );
 }
-
-    
