@@ -6,7 +6,7 @@ export default function Card({ item }) {
         style={{ width: "18rem", fontFamily: "-apple-system" }}
       >
         {/* ✅ Dynamic Image */}
-        <img src={item.img} className="card-img-top" alt={item.name} />
+        <img src={item.img} className="card-img-top"  style={{height:"120px",objectFit:"fill"}} alt={item.name} />
 
         <div className="card-body">
           {/* ✅ Dynamic Title */}
